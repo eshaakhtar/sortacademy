@@ -1,0 +1,461 @@
+/* ---------- Base + theme ---------- */
+:root{
+  --bg:#ffffff;
+  --ink:#111827;
+  --muted:#6b7280;
+  --card:#f6f7fb;
+  --border:#e5e7eb;
+  --primary:#2563eb;
+  --accent:#10b981;
+  --radius:14px;
+  --shadow:0 10px 24px rgba(0,0,0,.06);
+  --surface: #ffffff;                 /* used for sidebar, menus, white cards */
+  --topbar-bg: rgba(255,255,255,.92); /* keep  current topbar look */
+  --scroll-thumb: rgba(0,0,0,0.18);
+  --scroll-thumb-hover: rgba(0,0,0,0.28);
+  /* Callout colours (normal mode stays the same) */
+  --callout-bg: #eef2ff;   /* normal informational callout (blue) */
+  --tip-bg: #ecfdf5;       /* tip callout (green) */
+  --callout-ink: var(--ink);
+}
+html,body{height:100%}
+*{box-sizing:border-box}
+body{
+margin:0; background:var(--bg); color:var(--ink);
+font:16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+}
+
+/* Dyslexia-friendly toggle (applied by JS via .dyslexia) */
+body.dyslexia{
+font-family: "Atkinson Hyperlegible", "OpenDyslexic", system-ui, -apple-system,
+  "Segoe UI", Roboto, Arial, sans-serif;
+}
+/* High contrast toggle (applied by JS via .contrast) */
+body.contrast{
+--bg:#0b0f18; --ink:#e6e8ee; --muted:#cdd1da; --card:#141a27;
+--border:#3c4a66; --primary:#3b82f6; --accent:#34d399;
+--surface: #0f1523; --topbar-bg: rgba(11,15,24,.92); --callout-bg: #101a33;             
+--tip-bg: #0f2a22; --scroll-thumb: rgba(255,255,255,0.35);
+--scroll-thumb-hover: rgba(255,255,255,0.55);
+/* Callout colours in high contrast mode */
+--callout-bg: #101a33;   /* dark blue */
+--tip-bg: #0f2a22;       /* dark green */
+--callout-ink: var(--ink);
+}
+
+/* ---------- A11y ---------- */
+/* Focus visibility for keyboard users */
+:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Stronger focus in high contrast mode */
+body.contrast :focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+.skip-link{
+position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden
+}
+.skip-link:focus{
+left:8px;top:8px;width:auto;height:auto;background: var(--surface);
+color: var(--ink); border: 2px solid var(--primary);
+padding:8px 10px;border-radius:8px;z-index:1000
+}
+
+/* ---------- Header ---------- */
+.topbar{
+display:grid; grid-template-columns: 1fr auto auto; gap:12px;
+align-items:center; padding:10px 16px; border-bottom:1px solid var(--border);
+position:sticky; top:0; background: var(--topbar-bg); color: var(--ink);
+backdrop-filter:saturate(180%) blur(8px); z-index:20;
+}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{
+width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
+color:#fff;background:linear-gradient(135deg,var(--primary),#7c3aed)
+}
+.brand-name{font-weight:800}
+.crumbs ol{
+display:flex;gap:8px;list-style:none;margin:0;padding:0;font-size:14px
+}
+.crumbs a{text-decoration:none;color:var(--primary)}
+.actions{display:flex;gap:8px}
+.action-btn{
+background: var(--surface); color: var(--ink);border:1px solid var(--border);padding:8px 10px;
+border-radius:10px;cursor:pointer
+}
+.sidebar-toggle{display:none}
+
+/* ---------- Layout ---------- */
+.layout{
+display:grid;grid-template-columns: 250px 1fr;min-height:calc(100vh - 56px)
+}
+.sidebar{
+  border-right:1px solid var(--border);
+  padding:16px;
+  background: var(--surface); 
+  color: var(--ink);
+
+  /* NEW: keep sidebar visible while scrolling */
+  position: sticky;
+  top: 56px;                    /* matches topbar height */
+  height: calc(100vh - 56px);   /* fills the remaining viewport */
+  overflow-y: auto;             /* sidebar scrolls if content is long */
+}
+
+/* UPDATED: Sidebar section headings */
+.sidebar-title{
+margin:24px 0 8px;
+font-size:12px;
+color:var(--muted);
+text-transform:uppercase;
+letter-spacing:0.12em;
+}
+
+.toc{list-style:none;margin:0 0 14px;padding:0}
+.toc a{
+display:block;padding:8px 10px;border-radius:8px;text-decoration:none;
+color:inherit
+}
+.toc a:hover,.toc a.active{background:var(--card);color:var(--primary)}
+
+.content{padding:24px;}
+.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+.pill{
+display:inline-block;background:var(--card);border:1px solid var(--border);
+padding:6px 10px;border-radius:999px;color:var(--muted)
+}
+
+.card{
+background:var(--card);border:1px solid var(--border);
+border-radius:var(--radius);padding:16px;margin:16px 0;box-shadow:var(--shadow)
+}
+
+.steps{
+display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+gap:12px;margin:12px 0
+}
+.step{
+background: var(--surface); color: var(--ink);border:1px solid var(--border);border-radius:12px;padding:12px
+}
+.badge{
+display:inline-grid;place-items:center;width:26px;height:26px;
+border-radius:999px;background:var(--primary);color:#fff;margin-right:8px
+}
+
+.btn-row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{
+display:inline-block;background:var(--primary);color:#fff;text-decoration:none;
+padding:10px 14px;border-radius:10px
+}
+.btn.secondary{background: var(--surface);color:var(--ink);border:1px solid var(--border)}
+.callout{
+  border-left: 4px solid var(--primary);
+  background: var(--callout-bg);
+  color: var(--callout-ink);
+  padding: 12px;
+  border-radius: 10px;
+  margin: 16px 0;
+}
+
+.callout.tip{
+  border-left-color: var(--accent);
+  background: var(--tip-bg);
+}
+
+.site-footer{
+border-top:1px solid var(--border);padding:20px 16px;text-align:center;
+color:var(--muted)
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px){
+.layout{grid-template-columns:1fr}
+.sidebar{
+  position:fixed;inset:56px auto 0 0; width:220px;
+  transform:translateX(-100%); transition:transform .2s; z-index:30
+}
+.sidebar.open{transform:none}
+.sidebar-toggle{display:inline-block}
+.steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 600px){
+.steps{grid-template-columns:1fr}
+}
+
+/* ---------- Homepage enhancements ---------- */
+
+.hero {
+display: grid;
+grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
+gap: 24px;
+margin-bottom: 24px;
+}
+
+.hero-text h1 {
+margin-bottom: 8px;
+}
+
+.eyebrow {
+text-transform: uppercase;
+letter-spacing: 0.12em;
+font-size: 12px;
+color: var(--muted);
+margin: 0 0 4px;
+}
+
+.tagline {
+margin: 0 0 16px;
+color: var(--muted);
+max-width: 42rem;
+}
+
+.hero-cta-row {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+margin-bottom: 14px;
+}
+
+.hero-panel {
+background: var(--card);
+border-radius: var(--radius);
+border: 1px solid var(--border);
+padding: 18px 16px;
+box-shadow: var(--shadow);
+}
+
+.hero-panel h2 {
+margin-top: 0;
+font-size: 18px;
+}
+
+.hero-panel ul {
+padding-left: 18px;
+margin: 8px 0 0;
+}
+
+/* Progress strip */
+.progress-strip {
+display: flex;
+flex-direction: column;
+gap: 4px;
+margin-top: 6px;
+}
+
+.progress-label {
+font-size: 12px;
+text-transform: uppercase;
+letter-spacing: 0.12em;
+color: var(--muted);
+}
+
+.progress-bar {
+position: relative;
+width: 100%;
+height: 8px;
+border-radius: 999px;
+background: var(--card);
+overflow: hidden;
+border: 1px solid var(--border);
+}
+
+.progress-fill {
+height: 100%;
+border-radius: inherit;
+background: linear-gradient(90deg, var(--primary), #7c3aed);
+}
+
+.progress-text {
+font-size: 13px;
+color: var(--muted);
+}
+
+/* Two-column objectives section */
+.two-col {
+display: grid;
+grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
+gap: 18px;
+margin-bottom: 24px;
+}
+
+.emphasis-card {
+background: var(--callout-bg);
+}
+
+/* Chip list */
+.chip-list {
+list-style: none;
+padding: 0;
+margin: 10px 0 0;
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+}
+
+.chip {
+padding: 4px 10px;
+border-radius: 999px;
+border: 1px solid rgba(37, 99, 235, 0.15);
+background: var(--surface); 
+color: var(--ink); 
+font-size: 13px;
+}
+
+/* Real-world cards */
+.kpi-row {
+display: grid;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+gap: 14px;
+margin: 10px 0 22px;
+}
+
+.kpi-card {
+background: var(--surface);
+color: var(--ink);
+border-radius: var(--radius);
+border: 1px solid var(--border);
+padding: 14px 12px;
+box-shadow: var(--shadow);
+}
+
+.kpi-card h3 {
+margin-top: 0;
+font-size: 15px;
+}
+
+/* Callouts */
+.callout.note {
+background: var(--tip-bg);
+border-left-color: var(--accent);
+}
+
+.quote {
+margin: 0 0 4px;
+font-style: italic;
+}
+
+.quote-attrib {
+margin: 0;
+font-size: 13px;
+color: var(--muted);
+}
+
+/* UPDATED: Sidebar hover tweaks */
+.toc a {
+transition: background 0.15s ease, padding-left 0.15s ease;
+}
+
+.toc a:hover {
+padding-left: 14px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 960px) {
+.hero {
+  grid-template-columns: 1fr;
+}
+
+.two-col {
+  grid-template-columns: 1fr;
+}
+
+.kpi-row {
+  grid-template-columns: 1fr 1fr;
+}
+}
+
+@media (max-width: 600px) {
+.kpi-row {
+  grid-template-columns: 1fr;
+}
+}
+
+/* Large text mode */
+body.large-text {
+font-size: 18px;
+}
+
+/* Accessibility dropdown */
+.access-menu {
+position: absolute;
+top: 56px;
+right: 16px;
+background: var(--surface); 
+color: var(--ink);
+border-radius: 14px;
+border: 1px solid var(--border);
+box-shadow: var(--shadow);
+padding: 12px 14px;
+width: 240px;
+z-index: 40;
+}
+
+.access-menu h3 {
+margin: 0 0 8px;
+font-size: 14px;
+}
+
+.access-option {
+display: flex;
+align-items: center;
+gap: 8px;
+font-size: 14px;
+margin: 4px 0;
+}
+
+.access-option input {
+  margin: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.access-reset {
+margin-top: 8px;
+width: 100%;
+border-radius: 999px;
+border: 1px solid var(--border);
+background: var(--card);
+padding: 6px 8px;
+font-size: 13px;
+cursor: pointer;
+}
+
+/* Subtle scrollbar styling (desktop only) */
+.sidebar::-webkit-scrollbar {
+  width: 8px;               /* thinner than default */
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent; /* no heavy background */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);  /* soft grey */
+  border-radius: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+   background: var(--scroll-thumb-hover);  /* slightly darker on hover */
+}
+
+/* Remove gradient in high contrast mode */
+body.contrast .progress-fill {
+  background: var(--primary);
+}
+
+/* logo section in topbar */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 6px;
+}

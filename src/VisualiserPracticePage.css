@@ -1,0 +1,1512 @@
+/* src/VisualiserPracticePage.css */
+
+/* Page wrapper */
+.vp-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px;
+  }
+  
+  /* Header */
+  .vp-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+  
+  /* Main page heading */
+  .vp-title h1 {
+    margin: 0 0 4px 0;
+    font-size: 1.6rem;
+  }
+  
+  /* Small descriptive text under the heading */
+  .vp-title p {
+    margin: 0;
+    color: var(--muted, #6b7280);
+  }
+  
+  /* Back navigation button */
+  .vp-back {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(37, 99, 235, 0.10);
+    color: var(--text, #111827);
+    border: 1px solid rgba(37, 99, 235, 0.20);
+  }
+  
+  /* Hover effect for the back button */
+  .vp-back:hover {
+    background: rgba(37, 99, 235, 0.14);
+  }
+  
+  /* Three-column layout for controls, visualiser, and support panel */
+  .vp-grid {
+    display: grid;
+    grid-template-columns: 360px 1fr 340px;
+    gap: 14px;
+  }
+  
+  /* Stack into one column on smaller screens */
+  @media (max-width: 1100px) {
+    .vp-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* =========================
+   Reusable card styling
+   ========================= */
+
+  /* Shared card style used across panels */
+  .vp-card {
+    background: var(--bg-soft, #ffffff);
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 16px;
+    padding: 14px;
+    box-shadow: 0 8px 18px rgba(17, 24, 39, 0.06);
+  }
+  
+  /* Card section headings */
+  .vp-card h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+  }
+  
+  /* =========================
+   Form controls and inputs
+   ========================= */
+
+  /* Shared row layout for grouped controls */
+  .vp-row {
+    display: flex;
+    gap: 12px;
+    align-items: end;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  
+  /* Label wrapper for inputs/selects */
+  .vp-label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.92rem;
+    color: var(--text, #111827);
+    flex: 1;
+    min-width: 160px;
+  }
+  
+  /* Smaller label variant */
+  .vp-label.small {
+    min-width: 140px;
+  }
+  
+  /* Inline bold text used inside labels */
+  .vp-inline {
+    font-weight: 700;
+  }
+  
+  /* Shared style for select boxes and text inputs */
+  .vp-select,
+  .vp-input {
+    width: 100%;
+    padding: 10px 10px;
+    border-radius: 12px;
+    border: 1px solid var(--border, #e5e7eb);
+    background: #fff;
+    color: var(--text, #111827);
+    outline: none;
+  }
+  
+  /* Slightly smaller input field */
+  .vp-input.small {
+    padding: 9px 10px;
+  }
+  
+  /* Focus ring for inputs and selects */
+  .vp-select:focus,
+  .vp-input:focus {
+    border-color: rgba(37, 99, 235, 0.55);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+  }
+  
+  .vp-range {
+    width: 100%;
+  }
+  
+  /* Row specifically for button actions */
+  .vp-actions {
+    align-items: center;
+  }
+  
+  /* Standard button styling */
+  .vp-btn {
+    border: 1px solid rgba(37, 99, 235, 0.35);
+    background: rgba(37, 99, 235, 0.12);
+    color: var(--text, #111827);
+    padding: 10px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  
+  .vp-btn:hover {
+    background: rgba(37, 99, 235, 0.16);
+  }
+  
+  /* Disabled button styling */
+  .vp-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Softer, secondary button style */
+  .vp-btn.subtle {
+    border-color: rgba(17, 24, 39, 0.10);
+    background: rgba(17, 24, 39, 0.04);
+  }
+  
+  /* Segmented control container */
+  .vp-seg {
+    display: inline-flex;
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+  }
+  
+  /* Individual segmented control button */
+  .vp-seg-btn {
+    padding: 10px 12px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--text, #111827);
+  }
+  
+  /* Active state for segmented control button */
+  .vp-seg-btn.active {
+    background: rgba(37, 99, 235, 0.12);
+  }
+  
+  /* =========================
+   Metrics display
+   ========================= */
+
+/* Three-column metrics summary area */
+  .vp-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 8px;
+  }
+  
+  /* Individual metric card */
+  .vp-metric {
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 14px;
+    padding: 10px;
+    background: rgba(17, 24, 39, 0.02);
+  }
+  
+  /* Small label above metric value */
+  .vp-metric-label {
+    font-size: 0.82rem;
+    color: var(--muted, #6b7280);
+  }
+  
+  .vp-metric-value {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-top: 2px;
+  }
+  
+  /* Visualisation */
+  .vp-visual-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  /* Small legend chips row */
+  .vp-legend {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  /* Reusable pill/chip style */
+  .vp-chip {
+    font-size: 0.82rem;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border, #e5e7eb);
+    background: rgba(17, 24, 39, 0.03);
+  }
+  
+  /* Container holding the animated bars */
+  .vp-bars {
+    height: 320px;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 12px 8px 10px;
+    border-radius: 16px;
+    border: 1px solid var(--border, #e5e7eb);
+    background: linear-gradient(180deg, rgba(17, 24, 39, 0.02), rgba(17, 24, 39, 0.00));
+    margin-top: 10px;
+    overflow-x: auto;
+  }
+  
+  /* Individual bar in the sorting visualisation */
+  .vp-bar {
+    width: 26px;
+    min-width: 26px;
+    border-radius: 12px 12px 8px 8px;
+    border: 1px solid rgba(17, 24, 39, 0.12);
+    background: rgba(37, 99, 235, 0.12);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0 4px;
+    position: relative;
+    transition: transform 120ms ease, background 140ms ease, box-shadow 140ms ease;
+  }
+  
+  /* Value label shown inside/above the bar */
+  .vp-bar-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    opacity: 0.85;
+  }
+  
+  /* Small index label for the array position */
+  .vp-bar-index {
+    font-size: 0.7rem;
+    opacity: 0.6;
+  }
+  
+  /* =========================
+   Bar state styles
+   ========================= */
+
+/* Highlights bars currently inside an active working range */
+  .vp-bar.in-range {
+    box-shadow: inset 0 0 0 999px rgba(17, 24, 39, 0.02);
+  }
+  
+  /* Highlight for compared bars */
+  .vp-bar.is-compare {
+    background: rgba(234, 179, 8, 0.22);
+    border-color: rgba(234, 179, 8, 0.45);
+    transform: translateY(-4px);
+  }
+  
+  /* Highlight for swapped bars */
+  .vp-bar.is-swap {
+    background: rgba(234, 88, 12, 0.22);
+    border-color: rgba(234, 88, 12, 0.45);
+    transform: translateY(-6px);
+  }
+  
+  /* Highlight for pivot bar (useful in quick sort) */
+  .vp-bar.is-pivot {
+    background: rgba(37, 99, 235, 0.24);
+    border-color: rgba(37, 99, 235, 0.60);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.10);
+  }
+  
+  /* Highlight for bars already in sorted position */
+  .vp-bar.is-sorted {
+    background: rgba(21, 128, 61, 0.20);
+    border-color: rgba(21, 128, 61, 0.45);
+  }
+  
+  /* =========================
+   Explanation box
+   ========================= */
+
+/* Container for textual explanation of the current step */
+  .vp-explain {
+    margin-top: 10px;
+    border: 1px solid var(--border, #e5e7eb);
+    background: rgba(17, 24, 39, 0.02);
+    border-radius: 14px;
+    padding: 10px 12px;
+  }
+  
+  /* Explanation section heading */
+  .vp-explain-title {
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  
+  /* Main explanation text */
+  .vp-explain-text {
+    color: var(--text, #111827);
+    line-height: 1.35;
+  }
+  
+ /* =========================
+   Practice area
+   ========================= */
+
+/* Practice task card */
+  .vp-practice {
+    margin-top: 12px;
+    border: 1px solid var(--border, #e5e7eb);
+    background: rgba(37, 99, 235, 0.05);
+    border-radius: 16px;
+    padding: 12px;
+  }
+  
+  /* Practice section heading */
+  .vp-practice-title {
+    font-weight: 900;
+    margin-bottom: 6px;
+  }
+  
+  /* Prompt text shown to the learner */
+  .vp-practice-prompt {
+    margin: 0 0 10px 0;
+    color: var(--text, #111827);
+  }
+  
+  /* Row layout for practice controls */
+  .vp-practice-row {
+    display: flex;
+    gap: 10px;
+    align-items: end;
+    flex-wrap: wrap;
+  }
+  
+  /* General feedback message box */
+  .vp-feedback {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border, #e5e7eb);
+    background: #fff;
+    font-weight: 700;
+  }
+  
+  /* Positive feedback state */
+  .vp-feedback.ok {
+    border-color: rgba(21, 128, 61, 0.35);
+    background: rgba(21, 128, 61, 0.10);
+  }
+  
+  /* Negative feedback state */
+  .vp-feedback.bad {
+    border-color: rgba(185, 28, 28, 0.35);
+    background: rgba(185, 28, 28, 0.10);
+  }
+  
+/* =========================
+   Info panel / pseudocode
+   ========================= */
+
+/* Top border section for additional algorithm information */
+  .vp-info-block {
+    margin-top: 12px;
+    border-top: 1px solid var(--border, #e5e7eb);
+    padding-top: 12px;
+  }
+  
+  /* Info block heading */
+  .vp-info-title {
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+  
+  /* Pseudocode/code display container */
+  .vp-code {
+    border-radius: 14px;
+    border: 1px solid var(--border, #e5e7eb);
+    background: rgba(17, 24, 39, 0.02);
+    padding: 10px;
+  }
+  
+  /* Individual pseudocode line layout */
+  .vp-code-line {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 10px;
+    padding: 6px 8px;
+    border-radius: 10px;
+  }
+  
+  /* Highlight current active line in pseudocode */
+  .vp-code-line.active {
+    background: rgba(37, 99, 235, 0.12);
+    border: 1px solid rgba(37, 99, 235, 0.20);
+  }
+  
+  /* Line number styling */
+  .vp-code-num {
+    opacity: 0.65;
+    font-weight: 800;
+  }
+  
+  /* Monospace code text */
+  .vp-code-text {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.9rem;
+  }
+  
+/* Small helper/tip text */
+  .vp-tip {
+    margin-top: 8px;
+    color: var(--muted, #6b7280);
+    font-size: 0.9rem;
+  }
+  
+  /* Standard bullet list styling */
+  .vp-bullets {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--text, #111827);
+  }
+  
+  .vp-bullets li {
+    margin-bottom: 6px;
+  }
+  
+  /* Legend dots */
+  .vp-legend-list {
+    display: grid;
+    gap: 8px;
+  }
+  
+  /* Small coloured dot shown in legends */
+  .vp-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    margin-right: 8px;
+    border: 1px solid rgba(17, 24, 39, 0.18);
+    vertical-align: -1px;
+  }
+  
+  /* Dot colour for compare state */
+.vp-dot.compare {
+  background: rgba(234, 179, 8, 0.35);
+}
+
+/* Dot colour for swap state */
+.vp-dot.swap {
+  background: rgba(234, 88, 12, 0.35);
+}
+
+/* Dot colour for pivot state */
+.vp-dot.pivot {
+  background: rgba(37, 99, 235, 0.35);
+}
+
+/* Dot colour for sorted state */
+  .vp-dot.compare {
+    background: rgba(234, 179, 8, 0.35);
+  }
+  
+/* Dot colour for swap state */
+  .vp-dot.swap {
+    background: rgba(234, 88, 12, 0.35);
+  }
+  
+/* Dot colour for pivot state */
+  .vp-dot.pivot {
+    background: rgba(37, 99, 235, 0.35);
+  }
+  
+  /* Dot colour for sorted state */
+  .vp-dot.sorted {
+    background: rgba(21, 128, 61, 0.35);
+  }
+
+  /* ===== NEW LAYOUT (Topbar + Sidebar + Main focus) ===== */
+
+.vp-shell {
+    min-height: 100vh;
+    background: var(--bg, #f9fafb);
+  }
+  
+  /* Topbar */
+  .vp-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--bg-soft, #fff);
+    border-bottom: 1px solid var(--border, #e5e7eb);
+  }
+  
+  /* Left side of the topbar */
+  .vp-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  /* Brand/logo text */
+  .vp-brand {
+    font-weight: 900;
+    letter-spacing: 0.2px;
+  }
+  
+  /* Top navigation links container */
+  .vp-top-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  /* Individual top navigation link */
+  .vp-top-link {
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 10px;
+    color: var(--text, #111827);
+    border: 1px solid transparent;
+    background: transparent;
+  }
+
+  /* Active or hovered top navigation link */
+  .vp-top-link.active,
+  .vp-top-link:hover {
+    background: rgba(37, 99, 235, 0.10);
+    border-color: rgba(37, 99, 235, 0.18);
+  }
+  
+  /* CTA button in the topbar */
+  .vp-top-cta {
+    text-decoration: none;
+    padding: 9px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(37, 99, 235, 0.22);
+    background: rgba(37, 99, 235, 0.12);
+    color: var(--text, #111827);
+    font-weight: 800;
+  }
+  
+  /* Body grid: Sidebar | Main | Guide */
+  .vp-body {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 14px 14px 24px;
+    display: grid;
+    grid-template-columns: 260px 1fr 340px;
+    gap: 14px;
+  }
+  
+  @media (max-width: 1100px) {
+    .vp-body {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Sidebar */
+  .vp-sidebar {
+    position: sticky;
+    top: 64px;
+    align-self: start;
+    background: var(--bg-soft, #fff);
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 8px 18px rgba(17, 24, 39, 0.06);
+  }
+  
+  /* Sidebar heading */
+  .vp-side-title {
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+  
+  /* Sidebar nav links stack */
+  .vp-side-nav {
+    display: grid;
+    gap: 6px;
+  }
+  
+  /* Sidebar category label */
+  .vp-side-group {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    font-weight: 900;
+    color: var(--muted, #6b7280);
+  }
+  
+  /* Sidebar link style */
+  .vp-side-link {
+    text-decoration: none;
+    padding: 9px 10px;
+    border-radius: 12px;
+    color: var(--text, #111827);
+    border: 1px solid transparent;
+  }
+  
+  /* Active and hover state for sidebar links */
+  .vp-side-link.active,
+  .vp-side-link:hover {
+    background: rgba(37, 99, 235, 0.10);
+    border-color: rgba(37, 99, 235, 0.18);
+  }
+  
+  /* Small note at bottom of sidebar */
+  .vp-side-note {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border, #e5e7eb);
+    color: var(--muted, #6b7280);
+    font-size: 0.9rem;
+  }
+  
+  /* Main */
+  .vp-main {
+    display: grid;
+    gap: 14px;
+  }
+  
+  /* Right Guide */
+  .vp-guide {
+    position: sticky;
+    top: 64px;
+    align-self: start;
+  }
+  
+  @media (max-width: 1100px) {
+    .vp-guide {
+      position: static;
+    }
+    .vp-sidebar {
+      position: static;
+    }
+  }
+  
+  /* Page head */
+  .vp-pagehead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 6px 2px;
+  }
+  
+  /* Main page title */
+  .vp-h1 {
+    margin: 0 0 6px 0;
+    font-size: 1.6rem;
+  }
+  
+  /* Subtitle/description text */
+  .vp-sub {
+    margin: 0;
+    color: var(--muted, #6b7280);
+  }
+  
+  /* Action buttons area in page header */
+  .vp-pagehead-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Rounded chip-style action button */
+  .vp-chipbtn {
+    border: 1px solid rgba(17, 24, 39, 0.12);
+    background: rgba(17, 24, 39, 0.04);
+    color: var(--text, #111827);
+    padding: 9px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 800;
+  }
+  .vp-chipbtn.active {
+    border-color: rgba(37, 99, 235, 0.22);
+    background: rgba(37, 99, 235, 0.12);
+  }
+  
+  /* Visual main emphasis */
+  .vp-visual-main {
+    padding: 14px;
+  }
+  
+  /* Layout for title and legend above the visualiser */
+  .vp-visual-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  /* Visual title block */
+  .vp-visual-title {
+    display: grid;
+    gap: 6px;
+  }
+  
+  /* Secondary heading style */
+  .vp-h2 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  
+  .vp-mini {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  /* Badge style for small meta info */
+  .vp-mini-badge {
+    font-size: 0.82rem;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border, #e5e7eb);
+    background: rgba(17, 24, 39, 0.03);
+  }
+
+  .vp-mini-badge.is-muted {
+    opacity: 0.65;
+  }
+  
+  /* Legend row beside the visual title */
+  .vp-visual-legend {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    color: var(--muted, #6b7280);
+  }
+  
+  /* Controls under visualisation */
+  .vp-controls-under .vp-controls-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Row for playback control buttons */
+  .vp-playrow {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  /* Two-column grid for controls */
+  .vp-controls-grid {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  
+  /* Remove spanning on narrow screens */
+  @media (max-width: 700px) {
+    .vp-controls-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .vp-span2 {
+    grid-column: span 2;
+  }
+  @media (max-width: 700px) {
+    .vp-span2 {
+      grid-column: auto;
+    }
+  }
+  
+  .vp-controls-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+  }
+  
+/* =========================
+   Inner content grid
+   ========================= */
+
+/* Layout for main visualiser area plus right guide */
+.vp-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 14px;
+  }
+  
+  @media (max-width: 1100px) {
+    .vp-content-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+/* Keyboard shortcuts panel */
+.vp-controls-titlewrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.vp-shortcuts-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Small chip button that opens shortcuts panel */
+.vp-shortcuts-chip {
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  background: rgba(17, 24, 39, 0.04);
+  color: var(--text, #111827);
+  padding: 8px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+/* Hover style for shortcuts chip */
+.vp-shortcuts-chip:hover {
+  background: rgba(37, 99, 235, 0.10);
+  border-color: rgba(37, 99, 235, 0.18);
+}
+
+/* Pop-up keyboard shortcuts panel */
+.vp-shortcuts-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 240px;
+  z-index: 30;
+  background: #fff;
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 14px;
+  box-shadow: 0 14px 28px rgba(17, 24, 39, 0.12);
+  padding: 12px;
+}
+
+/* Title inside shortcuts panel */
+.vp-shortcuts-title {
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+/* Shortcuts list */
+.vp-shortcuts-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+  color: var(--text, #111827);
+}
+
+/* Note text inside shortcuts panel */
+.vp-shortcuts-note {
+  margin-top: 8px;
+  color: var(--muted, #6b7280);
+  font-size: 0.88rem;
+}
+
+/* Keyboard key styling */
+kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.85rem;
+  padding: 2px 6px;
+  border-radius: 8px;
+  border: 1px solid rgba(17, 24, 39, 0.14);
+  background: rgba(17, 24, 39, 0.04);
+}
+
+/* Scrubber spacing */
+.vp-scrubber {
+  margin-top: 10px;
+  border-top: 1px solid var(--border, #e5e7eb);
+  padding-top: 10px;
+}
+
+/* =========================
+   Compare mode: full width
+   ========================= */
+
+   .vp-content-grid.vp-compare-layout {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* True side-by-side panels */
+  .vp-compare-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+  }
+  
+  @media (max-width: 1100px) {
+    .vp-compare-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Container for each compare panel */
+  .vp-compare-panel {
+    display: grid;
+    gap: 10px;
+  }
+  
+  /* Header row of a compare panel */
+  .vp-compare-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  /* Minimum width for compare select input */
+  .vp-compare-select {
+    min-width: 200px;
+  }
+  
+  /* Extra guide section shown below compare area */
+  .vp-guide-below {
+    margin-top: 14px;
+  }
+  
+  /* ===== Finished badge ===== */
+  
+  .vp-compare-hrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Badge shown when an algorithm run has finished */
+  .vp-finished-badge {
+    font-size: 0.78rem;
+    font-weight: 900;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(21, 128, 61, 0.35);
+    background: rgba(21, 128, 61, 0.12);
+  }
+  
+  /* Duplicate muted badge state kept for reuse */
+  .vp-mini-badge.is-muted {
+    opacity: 0.65;
+  }
+  
+  /* Divider used in accessibility menu/panel */
+  .access-sep {
+    border: 0;
+    border-top: 1px solid var(--border, #e5e7eb);
+    margin: 10px 0;
+  }
+  
+  /* Full-width accessibility option button */
+  .access-option-btn {
+    width: 100%;
+    text-align: left;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(17, 24, 39, 0.10);
+    background: rgba(17, 24, 39, 0.04);
+    color: var(--text, #111827);
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  /* Hover state for accessibility button */
+  .access-option-btn:hover {
+    background: rgba(37, 99, 235, 0.10);
+    border-color: rgba(37, 99, 235, 0.18);
+  }
+  
+  /* Accessibility shortcuts info box */
+  .access-shortcuts {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border, #e5e7eb);
+    background: rgba(17, 24, 39, 0.02);
+  }
+  
+  /* Heading inside accessibility shortcuts box */
+  .access-shortcuts-title {
+    font-weight: 900;
+    margin-bottom: 6px;
+  }
+  
+  /* Accessibility shortcut list */
+  .access-shortcuts ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+  
+  /* kbd style inside accessibility box */
+  .access-shortcuts kbd {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    padding: 2px 6px;
+    border-radius: 6px;
+    border: 1px solid rgba(17, 24, 39, 0.18);
+    background: #fff;
+  }
+  
+  /* ===== Learning support enhancements ===== */
+.vp-support {
+  display: grid;
+  gap: 12px;
+}
+
+/* Header row for support section */
+.vp-support-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Support section title */
+.vp-support-title {
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.vp-support-block {
+  padding-top: 10px;
+  border-top: 1px solid var(--border, #e5e7eb);
+}
+
+/* Remove top border from first support block */
+.vp-support-block:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+/* Muted explanatory text */
+.vp-muted {
+  color: var(--muted, #6b7280);
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+/* Prediction/answer row layout */
+.vp-predict-row {
+  display: grid;
+  gap: 10px;
+}
+
+.vp-predict-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Actions row in support section */
+.vp-exp-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 900px) {
+  .vp-exp-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Individual explanation card/button */
+.vp-exp {
+  text-align: left;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border, #e5e7eb);
+  background: rgba(17, 24, 39, 0.02);
+  cursor: pointer;
+}
+
+.vp-exp:hover {
+  background: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.18);
+}
+
+/* Explanation title */
+.vp-exp-title {
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+/* Explanation description text */
+.vp-exp-desc {
+  color: var(--muted, #6b7280);
+  line-height: 1.35;
+}
+
+/* Support toggle button helper */
+.vp-support-toggle {
+  white-space: nowrap;
+}
+
+/* ===== Learning support styling upgrade ===== */
+
+/* Make each support block feel like its own mini-card */
+.vp-support-card {
+  border: 1px solid var(--border, #e5e7eb);
+  background: rgba(17, 24, 39, 0.02);
+  border-radius: 16px;
+  padding: 14px 14px;
+}
+
+/* Stronger section title */
+.vp-support-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 950;
+  font-size: 1.02rem;
+  margin: 0 0 10px 0;
+}
+
+/* Replace plain bullets with “callout rows” */
+.vp-support-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+/* Each bullet becomes a row card */
+.vp-support-list li {
+  position: relative;
+  padding: 12px 12px 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(17, 24, 39, 0.10);
+  background: #fff;
+  line-height: 1.35;
+}
+
+/* Left accent bar */
+.vp-support-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 4px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.45);
+}
+
+/* Make the bold “question” part look like a pill label */
+.vp-support-list b {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  background: rgba(37, 99, 235, 0.10);
+  margin-right: 6px;
+}
+
+/* Give the last “tip” line a nicer feel */
+.vp-support .vp-tip {
+  border: 1px dashed rgba(37, 99, 235, 0.25);
+  background: rgba(37, 99, 235, 0.06);
+  padding: 10px 12px;
+  border-radius: 14px;
+}
+
+/*  tighten spacing between blocks */
+.vp-support-block {
+  padding-top: 0;
+  border-top: 0;
+}
+
+/* On small screens, keep it comfortable */
+@media (max-width: 700px) {
+  .vp-support-card {
+    padding: 12px;
+  }
+  .vp-support-title {
+    font-size: 1rem;
+  }
+}
+
+.vp-support-list li {
+  padding-left: 38px;
+}
+
+.vp-support-list li::after {
+  content: "✓";
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  font-weight: 900;
+  opacity: 0.5;
+}
+
+/* ===== Visualiser + Practice upgrades ===== */
+
+/* Progress bar under the step badges */
+.vp-progress {
+  margin-top: 10px;
+  height: 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border, #e5e7eb);
+  background: rgba(17, 24, 39, 0.04);
+  overflow: hidden;
+}
+
+.vp-progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.45);
+}
+
+/* “Why?” explanation line */
+.vp-why {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(17, 24, 39, 0.15);
+  color: var(--muted, #6b7280);
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.vp-why-tag {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  background: rgba(37, 99, 235, 0.10);
+  color: var(--text, #111827);
+  font-weight: 900;
+  font-size: 0.82rem;
+}
+
+/* Variable labels above bars (i, j, pivot, key...) */
+.vp-var {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 14px rgba(17, 24, 39, 0.08);
+}
+
+/* Click-to-select highlight in Practice mode */
+.vp-bar.is-selected {
+  outline: 3px solid rgba(124, 58, 237, 0.55);
+  box-shadow: 0 0 0 6px rgba(124, 58, 237, 0.12);
+  transform: translateY(-8px);
+}
+
+/* Practice top mini badges row */
+.vp-practice-metrics {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+/* Muted mini badge state you asked about earlier */
+.vp-mini-badge.is-muted {
+  opacity: 0.65;
+}
+
+/* ===== Algorithm Insights card (fills right-column space) ===== */
+.vp-insights-card {
+  margin-top: 14px;
+}
+
+/* Reuse the support card style for the base */
+.vp-insights-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Summary paragraph in insights card */
+.vp-insights-summary {
+  margin: 10px 0 12px 0;
+}
+
+/* Grid for insight items */
+.vp-insights-grid {
+  display: grid;
+  gap: 10px;
+}
+
+/* Individual insight block */
+.vp-insight {
+  border: 1px solid rgba(17, 24, 39, 0.10);
+  background: #fff;
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+/* Insight key/label */
+.vp-insight-k {
+  font-size: 0.82rem;
+  color: var(--muted, #6b7280);
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+/* Insight value/content */
+.vp-insight-v {
+  color: var(--text, #111827);
+  line-height: 1.35;
+}
+
+/* =========================================================
+   High contrast support (NO layout changes)
+   Add at the BOTTOM so it overrides earlier #fff / rgba whites
+========================================================= */
+
+/* Panels/cards that must not stay white in contrast mode */
+body.contrast .vp-card,
+body.contrast .vp-topbar,
+body.contrast .vp-sidebar,
+body.contrast .vp-shortcuts-panel,
+body.contrast .vp-support-card,
+body.contrast .vp-support-list li,
+body.contrast .vp-insight,
+body.contrast .vp-code,
+body.contrast .vp-explain,
+body.contrast .vp-practice,
+body.contrast .access-shortcuts,
+body.contrast .vp-metric,
+body.contrast .vp-bars {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--border);
+}
+
+/* Inputs / selects need dark surface too */
+body.contrast .vp-select,
+body.contrast .vp-input {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--border);
+}
+
+/* Buttons/chips that currently use light rgba backgrounds */
+body.contrast .vp-btn,
+body.contrast .vp-chipbtn,
+body.contrast .vp-shortcuts-chip,
+body.contrast .access-option-btn,
+body.contrast .vp-seg {
+  background: var(--card);
+  color: var(--ink);
+  border-color: var(--border);
+}
+
+/* Segmented buttons inherit the contrast surface */
+body.contrast .vp-seg-btn {
+  color: var(--ink);
+}
+
+/* Text that was using "muted" stays readable */
+body.contrast .vp-title p,
+body.contrast .vp-metric-label,
+body.contrast .vp-tip,
+body.contrast .vp-muted,
+body.contrast .vp-side-group,
+body.contrast .vp-side-note,
+body.contrast .vp-sub,
+body.contrast .vp-legend,
+body.contrast .vp-shortcuts-note,
+body.contrast .vp-insight-k {
+  color: var(--muted);
+  opacity: 1;
+}
+
+/* Links - keep your accent but make sure it's visible */
+body.contrast .vp-back,
+body.contrast .vp-top-link,
+body.contrast .vp-side-link,
+body.contrast .vp-top-cta {
+  color: var(--ink);
+}
+
+/* Hover/active states still show as "primary" */
+body.contrast .vp-top-link.active,
+body.contrast .vp-top-link:hover,
+body.contrast .vp-side-link.active,
+body.contrast .vp-side-link:hover,
+body.contrast .vp-chipbtn.active,
+body.contrast .vp-seg-btn.active {
+  background: rgba(105, 166, 255, 0.18);
+  border-color: rgba(105, 166, 255, 0.30);
+}
+
+/* Bars container gradient should not stay light */
+body.contrast .vp-bars {
+  background: var(--card);
+}
+
+/* Keep the bar colours (meaningful) but increase contrast slightly */
+body.contrast .vp-bar {
+  border-color: rgba(230, 232, 238, 0.25);
+}
+
+/* The small variable labels above bars must not stay white */
+body.contrast .vp-var {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--border);
+  box-shadow: none;
+}
+
+/* kbd tags should not stay light */
+body.contrast kbd {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--border);
+}
+
+/* Practice feedback base shouldn't be forced white */
+body.contrast .vp-feedback {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 6px;
+}

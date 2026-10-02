@@ -1,0 +1,413 @@
+/* Only applies inside the landing page root */
+.home-shell {
+  min-height: 100vh;
+  padding: 32px 24px 40px;
+  background: #f5f7ff;
+  color: #111827;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+}
+
+/* =========================
+   Top header / navigation
+   ========================= */
+
+/* Main header row containing logo and navigation */
+.home-shell .home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* Logo area layout */
+.home-shell .home-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Rounded badge showing the SortAcademy initials */
+.home-shell .home-logo-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+/* Main logo text */
+.home-shell .home-logo-text-main {
+  font-weight: 800;
+  font-size: 22px;
+}
+
+/* Smaller subtitle under the logo */
+.home-shell .home-logo-text-sub {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Navigation links container */
+.home-shell .home-nav {
+  display: flex;
+  gap: 12px;
+}
+
+/* Individual navigation link */
+.home-shell .home-nav a {
+  padding: 8px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+/* Active navigation link highlight */
+.home-shell .home-nav a.active {
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+  color: #2563eb;
+}
+
+/* =========================
+   Hero section
+   ========================= */
+
+/* Two-column hero layout: text on left, storyboard card on right */
+.home-shell .hero {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+/* Small uppercase label above the hero title */
+.home-shell .hero-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+/* Main hero heading */
+.home-shell .hero-title {
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1.1;
+  margin: 0 0 10px;
+}
+
+.home-shell .hero-body {
+  max-width: 480px;
+  color: #4b5563;
+  margin: 0 0 20px;
+}
+
+/* Container for hero call-to-action buttons */
+.home-shell .hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+/* Shared styling for primary and ghost buttons */
+.home-shell .btn-primary,
+.home-shell .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+/* Primary call-to-action button */
+.home-shell .btn-primary {
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+/* Small spacing for icon/text inside primary button */
+.home-shell .btn-primary span {
+  margin-left: 6px;
+}
+
+.home-shell .btn-ghost {
+  background: transparent;
+  color: #111827;
+  border-color: #d1d5db;
+}
+
+/* small caption */
+.home-shell .hero-caption {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* ------------------------------------------------------------------ */
+/* NEW STORYBOARD CARD: Unsorted to In progress to Sorted               */
+/* ------------------------------------------------------------------ */
+
+/* Card container on the right side of the hero section */
+.home-shell .hero-story-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 18px 20px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Layout for the three storyboard panels */
+.home-shell .storyboard {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Each panel */
+.home-shell .story-step {
+  border-radius: 14px;
+  background: #f9fafb;
+  padding: 12px 10px 12px;
+  border: 1px solid transparent;
+  opacity: 0.6;
+  transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  animation: storyHighlight 9s infinite;
+}
+
+/* stagger highlight across the 3 panels */
+.home-shell .story-step:nth-child(1) {
+  animation-delay: 0s;
+}
+.home-shell .story-step:nth-child(2) {
+  animation-delay: 3s;
+}
+.home-shell .story-step:nth-child(3) {
+  animation-delay: 6s;
+}
+
+/* Animation for panel emphasis */
+@keyframes storyHighlight {
+  0%,
+  22% {
+    opacity: 1;
+    transform: translateY(-2px);
+    border-color: rgba(37, 99, 235, 0.35);
+    box-shadow: 0 10px 26px rgba(37, 99, 235, 0.18);
+  }
+  33%,
+  100% {
+    opacity: 0.6;
+    transform: translateY(0);
+    border-color: transparent;
+    box-shadow: none;
+  }
+}
+
+/* Row of bars inside each storyboard panel */
+.home-shell .story-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+/* Individual bar used in the mini sorting illustration */
+.home-shell .story-bar {
+  width: 10px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #a855f7, #2563eb);
+}
+
+/* Height modifiers */
+.home-shell .story-bar.h-xs {
+  height: 18px;
+}
+.home-shell .story-bar.h-sm {
+  height: 28px;
+}
+.home-shell .story-bar.h-md {
+  height: 42px;
+}
+.home-shell .story-bar.h-lg {
+  height: 60px;
+}
+
+/* “In progress” bars */
+.home-shell .story-bar.is-active {
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.4);
+}
+
+/* Sorted bars */
+.home-shell .story-bar.is-sorted {
+  background: linear-gradient(180deg, #10b981, #059669);
+}
+
+/* Number row shown under the bars */
+.home-shell .story-numbers {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0 0 2px;
+}
+
+/* Small green check mark used in sorted panel */
+.home-shell .story-check {
+  color: #10b981;
+  margin-left: 4px;
+}
+
+.home-shell .story-label {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+/* Short descriptive caption under each step */
+.home-shell .story-caption {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* SECTIONS BELOW                                                     */
+/* ------------------------------------------------------------------ */
+
+/* General section spacing */
+.home-shell .section {
+  margin: 40px 0 24px;
+}
+
+/* Section heading */
+.home-shell .section h2 {
+  margin: 0 0 12px;
+}
+
+/* Introductory text for a section */
+.home-shell .section-intro {
+  max-width: 720px;
+  color: #4b5563;
+  margin-bottom: 18px;
+}
+
+/* Grid layout for rows of information cards */
+.home-shell .card-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.home-shell .info-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px 16px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.home-shell .info-card h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+/* Four-column row showing the learning journey steps */
+.home-shell .steps-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Individual step card */
+.home-shell .step-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px 16px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* Circular number badge for each step */
+.home-shell .step-badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  background: #2563eb;
+  color: #fff;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+/* Main CTA area near the bottom of the landing page */
+.home-shell .home-footer-cta {
+  text-align: center;
+  margin: 48px 0 16px;
+}
+
+.home-shell .home-footer-cta p {
+  margin: 4px 0 18px;
+  color: #4b5563;
+}
+
+/* Simple footer */
+.home-shell .home-footer {
+  text-align: center;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+/* Responsive tweaks */
+@media (max-width: 960px) {
+  .home-shell {
+    padding: 20px 16px 28px;
+  }
+
+  .home-shell .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .home-shell .card-row {
+    grid-template-columns: 1fr;
+  }
+
+  .home-shell .steps-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .home-shell .hero-story-card {
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-shell .steps-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.home-logo-image {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  display: block;
+}
+
+.home-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.home-logo-image {
+  border-radius: 8px;
+}

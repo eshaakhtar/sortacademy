@@ -1,0 +1,1909 @@
+/* LessonPage.css */
+:root {
+  --bg: #f9fafb;
+  --bg-soft: #ffffff;
+  --bg-softer: #f3f4f6;
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.12);
+  --accent-strong: #ea580c;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --danger: #b91c1c;
+  --success: #15803d;
+  --card-radius: 16px;
+}
+
+/* =========================
+   Global lesson container
+   ========================= */
+   
+/* Main wrapper for the lesson page */
+.bubble-lesson {
+  background: radial-gradient(circle at top, #e5edff 0, #f9fafb 42%, #f9fafb 100%);
+  color: var(--text);
+  padding: 18px 14px 14px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================
+   Header area
+   ========================= */
+
+/* Outer lesson header */
+.lesson-header {
+  margin-bottom: 16px;
+}
+
+/* Breadcrumb text above the title */
+.lesson-breadcrumbs {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+/* Main header row with title on left and progress on right */
+.lesson-header-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/* Main lesson title */
+.lesson-header-main h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* Lesson subtitle/description */
+.lesson-header-main p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  max-width: 540px;
+}
+
+/* Progress block container */
+.lesson-progress {
+  min-width: 200px;
+}
+
+/* Row showing progress label and percentage/value */
+.lesson-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  color: var(--muted);
+}
+
+/* Highlighted numeric progress value */
+.lesson-progress-value {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Background track for progress bar */
+.lesson-progress-bar {
+  background: var(--bg-softer);
+  border-radius: 999px;
+  height: 6px;
+  overflow: hidden;
+}
+
+/* Filled progress bar */
+.lesson-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #22c55e);
+  transition: width 0.3s ease;
+}
+
+/* =========================
+   Gamification / achievements
+   ========================= */
+
+/* Section containing achievement badges */
+.lesson-gamification {
+  margin-bottom: 25px;
+}
+
+/* Achievements section heading */
+.lesson-gamification h2 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+/* Intro text for the achievements section */
+.gamification-intro {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Badge grid layout */
+.gamification-badges {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+/* Individual achievement badge card */
+.badge-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 12px 12px;      
+  min-height: 92px;        
+  background: var(--bg-soft);
+  box-shadow: 0 3px 6px rgba(15, 23, 42, 0.08);
+}
+
+
+/* Styling for an earned badge */
+.badge-card-earned {
+  border-color: var(--accent);
+  background: #eff6ff;
+}
+
+/* Styling for a locked badge */
+.badge-card-locked {
+  opacity: 0.85;
+}
+
+/* Badge icon */
+.badge-icon {
+  font-size: 1.4rem;   
+  line-height: 1;      
+  flex-shrink: 0;      
+}
+
+/* Badge text content wrapper */
+.badge-info {
+  flex: 1;
+}
+
+/* Badge title */
+.badge-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.35;     
+  margin-bottom: 2px;   
+}
+
+.badge-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.4;     
+  margin-bottom: 4px;  
+}
+
+.badge-status {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+/* =========================
+   Hero section
+   ========================= */
+
+/* Two-column hero section at the top of the lesson */
+.lesson-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+  gap: 24px;
+  background: linear-gradient(135deg, #ffffff, #e5edff);
+  border-radius: 20px;
+  padding: 20px 24px;
+  border: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+
+/* Hero heading */
+.lesson-hero-text h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.4rem;
+}
+
+/* Hero bullet list */
+.lesson-hero-text ul {
+  margin: 0 0 12px 16px;
+  padding: 0;
+  color: var(--muted);
+}
+
+/* Hero list item spacing */
+.lesson-hero-text li {
+  margin-bottom: 4px;
+}
+
+/* Right-side hero preview card */
+.lesson-hero-preview {
+  border-radius: 16px;
+  background: radial-gradient(circle at 20% 0%, #bfdbfe 0, transparent 52%),
+    radial-gradient(circle at 80% 100%, #fed7aa 0, transparent 55%),
+    #eff6ff;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Mini array preview layout */
+.preview-array {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 120px;
+}
+
+/* Individual bar in the hero preview */
+.preview-bar {
+  flex: 1;
+  background: #e5edff;
+  border-radius: 999px 999px 4px 4px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #bfdbfe;
+}
+
+/* Number/value text inside preview bar */
+.preview-bar span {
+  font-size: 0.75rem;
+  color: #374151;
+  margin-bottom: 4px;
+  z-index: 1;
+}
+
+/* Decorative coloured fill inside preview bars */
+.preview-bar::before {
+  content: "";
+  position: absolute;
+  inset: auto 4px 0 4px;
+  height: 70%;
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.7), rgba(37, 99, 235, 0.15));
+  border-radius: inherit;
+}
+
+.preview-caption {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Sections */
+.lesson-section {
+  margin-top: 32px;
+}
+
+/* Section headings */
+.lesson-section h2 {
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+/* Intro paragraph used below section headings */
+.section-intro {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: var(--muted);
+  max-width: 640px;
+}
+
+/* =========================
+   Concept builder
+   ========================= */
+
+/* Two-column layout for concept builder */
+.concept-builder {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
+  gap: 20px;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+  padding: 16px 18px;
+  background: var(--bg-soft);
+}
+
+/* Concept builder subheading */
+.concept-builder-text h3 {
+  margin-top: 0;
+}
+
+.concept-builder-text p {
+  color: var(--muted);
+}
+
+.concept-builder-interactive {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Generic row of cards/buttons */
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Number cards */
+.number-card {
+  min-width: 40px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  color: var(--text);
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease,
+    background 0.1s ease;
+}
+
+/* Hover state for number cards */
+.number-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(148, 163, 184, 0.4);
+  border-color: var(--accent);
+  background: #eff6ff;
+}
+
+.number-card-selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.7);
+}
+
+.concept-builder-controls {
+  display: flex;
+  gap: 8px;
+}
+
+/* =========================
+   Buttons
+   ========================= */
+
+/* Shared button styles */
+.btn-primary,
+.btn-secondary,
+.btn-ghost,
+.btn-icon {
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 8px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.1s ease,
+    border-color 0.15s ease;
+}
+
+/* Main action button */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), #22c55e);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.4);
+}
+
+/* Hover state for primary button */
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 36px rgba(37, 99, 235, 0.55);
+}
+
+/* Secondary button */
+.btn-secondary {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+/* Hover state for secondary button */
+.btn-secondary:hover {
+  background: #e5edff;
+  border-color: var(--accent);
+}
+
+/* Ghost/low-emphasis button */
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+/* Hover state for ghost button */
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  background: #f9fafb;
+}
+
+/* Small icon button */
+.btn-icon {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.8rem;
+}
+
+/* Disabled icon button */
+.btn-icon:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Selected button state */
+.btn-selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* Feedback text */
+.feedback-text {
+  margin-top: 6px;
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+/* Inputs */
+.input-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Text input styling */
+.input-label input[type="text"] {
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+/* Range input spacing */
+.input-label input[type="range"] {
+  margin-top: 6px;
+}
+
+/* Input validation error text */
+.input-error {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: var(--danger);
+}
+
+/* Simulator layout */
+.simulator-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+  gap: 24px;
+}
+
+/* Left side of simulator */
+.simulator-left {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.simulator-input-panel {
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+  padding: 12px 16px;
+  background: var(--bg-soft);
+}
+
+/* Button row under simulator input */
+.simulator-input-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* Simulator control panel */
+.simulator-controls {
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  background: #f3f4f6;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Row of playback buttons */
+.simulator-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Extra horizontal padding for main simulator button */
+.simulator-buttons .btn-primary {
+  padding-inline: 18px;
+}
+
+/* Options row under simulator controls */
+.simulator-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+/* Label + control group */
+.option-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+}
+
+/* Tighter spacing for checkbox groups */
+.option-group.checkbox {
+  gap: 4px;
+}
+
+.option-label {
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* =========================
+   Simulator visual area
+   ========================= */
+
+/* Main simulator visual container */
+.simulator-visual {
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+  padding: 14px;
+  background: #ffffff;
+}
+
+/* Flex layout for visual array items */
+.array-visual {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  min-height: 150px;
+  padding-bottom: 6px;
+}
+
+/* Individual visual array item */
+.array-item {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+/* Wrapper for bar-style item */
+.array-item-bar {
+  height: 100%;
+}
+
+/* Inner coloured bar */
+.array-item-bar-inner {
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 999px 999px 6px 6px;
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.7), rgba(37, 99, 235, 0.25));
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+  transition: height 0.15s ease;
+}
+
+/* Circle-based item variant */
+.array-item-circle {
+  height: 72px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Value text inside circle layout is no longer absolute */
+.array-item-circle .array-item-value {
+  position: static;
+}
+
+/* Decorative circle fill */
+.array-item-circle::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 999px;
+  background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.8), rgba(59, 130, 246, 0.7));
+  opacity: 0.9;
+  box-shadow: 0 8px 18px rgba(59, 130, 246, 0.4);
+}
+
+/* Value label under array items */
+.array-item-value {
+  position: absolute;
+  bottom: -18px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* Highlight when an item is being compared */
+.array-item-comparing .array-item-bar-inner {
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.9), 0 0 20px rgba(37, 99, 235, 0.5);
+}
+
+/* Circle comparison highlight */
+.array-item-comparing.array-item-circle::before {
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.9), 0 0 20px rgba(37, 99, 235, 0.6);
+}
+
+/* Sorted item styling for bar layout */
+.array-item-sorted .array-item-bar-inner {
+  background: linear-gradient(180deg, rgba(34, 197, 94, 0.9), rgba(21, 128, 61, 0.7));
+  box-shadow: 0 8px 20px rgba(22, 163, 74, 0.4);
+}
+
+/* Sorted item styling for circle layout */
+.array-item-sorted.array-item-circle::before {
+  background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.9), rgba(22, 163, 74, 0.7));
+  box-shadow: 0 8px 20px rgba(22, 163, 74, 0.5);
+}
+
+/* Step information area below simulator */
+.simulator-step-info {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+/* Summary row for current simulator step */
+.simulator-step-summary {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+}
+
+.simulator-step-detail p {
+  margin: 0;
+}
+
+/* Variable display row (e.g. i, j, pass count) */
+.simulator-variables {
+  display: flex;
+  gap: 12px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* Simulator right panel */
+.simulator-right {
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  background: var(--bg-soft);
+}
+
+/* Complexity */
+.complexity-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+  gap: 18px;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  background: var(--bg-soft);
+}
+
+/* Complexity text colouring */
+.complexity-grid p,
+.complexity-grid li {
+  color: var(--muted);
+}
+
+/* Interactive complexity comparison card */
+.complexity-interactive {
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  background: #eff6ff;
+}
+
+/* Vertical stack of complexity comparison bars */
+.complexity-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.complexity-row {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 3fr) auto;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+/* Track for a complexity bar */
+.complexity-bar {
+  position: relative;
+  height: 8px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.complexity-bar-fill {
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.2s ease;
+}
+
+/* Bubble sort bar colour */
+.complexity-bar-fill.bubble {
+  background: linear-gradient(90deg, var(--accent-strong), #f97316);
+}
+
+/* Faster algorithm bar colour */
+.complexity-bar-fill.fast {
+  background: linear-gradient(90deg, var(--accent), #22c55e);
+}
+
+/* Text value shown beside complexity bars */
+.complexity-value {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Small caption under complexity chart */
+.complexity-caption {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* =========================
+   Case presets
+   ========================= */
+
+/* Container for best/average/worst case presets */
+.case-presets {
+  margin-top: 18px;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  background: var(--bg-soft);
+  font-size: 0.9rem;
+}
+
+/* Preset description text */
+.case-presets p {
+  color: var(--muted);
+}
+
+/* Buttons row for case presets */
+.case-presets-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+/* Horizontal scroll wrapper for preset table */
+.case-presets-table-wrapper {
+  overflow-x: auto;
+}
+
+/* Case presets comparison table */
+.case-presets-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.case-presets-table th,
+.case-presets-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.case-presets-table th {
+  font-weight: 600;
+  background: #f3f4f6;
+}
+
+/* =========================
+   Stability & adaptive section
+   ========================= */
+
+/* Two-column layout for stability/adaptive content */
+.stability-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+  gap: 18px;
+}
+
+/* Generic panel in the stability section */
+.stability-panel {
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  background: var(--bg-soft);
+  font-size: 0.9rem;
+}
+
+/* Row of stability cards */
+.stability-cards {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+/* Individual stability card */
+.stability-card {
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: #f9fafb;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stability-name {
+  font-weight: 500;
+}
+
+.stability-score {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Button rows for stability and adaptive sections */
+.stability-buttons,
+.adaptive-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* Result text for adaptive section */
+.adaptive-results {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Exercises */
+
+/* Sticky lesson sub-navigation (keeps page nav visible while scrolling) */
+.lesson-subnav {
+  position: sticky;
+  top: 56px; 
+  z-index: 15;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Button used inside the sticky lesson subnav */
+.lesson-subnav-btn {
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--muted);
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+
+/* Hover state for subnav buttons */
+.lesson-subnav-btn:hover {
+  border-color: var(--accent);
+  background: #e5edff;
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+/* Exercise tabs (only one exercise visible at a time) */
+.exercise-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0 12px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+/* Individual exercise tab */
+.exercise-tab {
+  border: 1px solid var(--border);
+  border-bottom: none;
+  background: var(--bg-softer);
+  color: var(--muted);
+  padding: 8px 12px;
+  border-radius: 12px 12px 0 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+/* Active exercise tab */
+.exercise-tab.active {
+  background: var(--bg-soft);
+  color: var(--text);
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+/* Generic exercise card */
+.exercise {
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  background: var(--bg-soft);
+  margin-top: 16px;
+  font-size: 0.9rem;
+}
+
+.exercise h3 {
+  margin-top: 0;
+}
+
+.exercise-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+/* Individual exercise option button */
+.exercise-option {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  color: var(--text);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+/* Hover state for exercise options */
+.exercise-option:hover {
+  background: #e5edff;
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* Selected exercise option */
+.exercise-option-selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.exercise-footer {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Spot Bubble Sort */
+.spot-bubble {
+  margin-top: 10px;
+}
+
+.spot-bubble-snippets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+}
+
+/* Individual snippet card */
+.spot-bubble-snippet {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  padding: 8px 10px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+/* Hover effect for each code snippet option in the Spot Bubble Sort activity */
+.spot-bubble-snippet:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(148, 163, 184, 0.4);
+}
+
+/* Selected snippet state */
+.spot-bubble-snippet-selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.7);
+  background: #eff6ff;
+}
+
+/* Title text above each snippet */
+.spot-bubble-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* Code preview text inside snippet cards */
+.spot-bubble-code {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* =========================
+   Code tabs
+   ========================= */
+
+/* Wrapper around the code tab section */
+.code-tabs {
+  margin-top: 8px;
+}
+
+/* Row containing the tab buttons */
+.code-tabs-header {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+/* Individual code tab button */
+.code-tab {
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #f3f4f6;
+  color: var(--muted);
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.code-tab-active {
+  border-color: var(--accent);
+  color: var(--text);
+  background: var(--accent-soft);
+}
+
+/* Main dark code display area */
+.code-block {
+  background: #0f172a;
+  border-radius: 14px;
+  border: 1px solid #111827;
+  padding: 8px 10px;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.75rem;
+  max-height: 260px;
+  overflow: auto;
+}
+
+.code-line {
+  display: flex;
+  gap: 8px;
+  white-space: pre;
+}
+
+/* Code line number column */
+.code-line-number {
+  width: 24px;
+  text-align: right;
+  color: #4b5563;
+  flex-shrink: 0;
+}
+
+.code-line-text {
+  color: #d1d5db;
+}
+
+/* Slightly brighter styling for hinted lines */
+.code-line-hinted .code-line-text {
+  color: #e5e7eb;
+}
+
+/* Highlighted/current code line */
+.code-line-active {
+  background: rgba(59, 130, 246, 0.25);
+}
+
+/* Brighter text for the active code line */
+.code-line-active .code-line-text {
+  color: #e0f2fe;
+}
+
+/* =========================
+   Quiz section
+   ========================= */
+
+/* Spacing above the lesson quiz section */
+.lesson-quiz {
+  margin-top: 40px;
+}
+
+.quiz {
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  background: var(--bg-soft);
+}
+
+/* Individual quiz question block */
+.quiz-question {
+  margin-bottom: 14px;
+}
+
+.quiz-question-text {
+  margin: 0 0 4px;
+}
+
+/* Vertical layout for answer options */
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.quiz-option {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+/* Small alignment adjustment for radio/checkbox input */
+.quiz-option input {
+  margin-top: 2px;
+}
+
+.quiz-explanation {
+  font-size: 1rem;
+  margin-top: 4px;
+}
+
+/* Additional explanation/detail text */
+.quiz-explanation-detail {
+  margin-top: 2px;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+/* Correct answer/result colouring */
+.quiz-correct {
+  color: var(--success);
+}
+
+/* Incorrect answer/result colouring */
+.quiz-incorrect {
+  color: var(--danger);
+}
+
+/* Footer row for quiz controls and score */
+.quiz-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.quiz-score {
+  font-size: 0.9rem;
+}
+
+/* =========================
+   Summary section
+   ========================= */
+
+/* Outer summary section spacing */
+.lesson-summary {
+  margin-top: 32px;
+}
+
+/* Two-column summary layout */
+.summary-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+  gap: 16px;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+  padding: 16px 18px;
+  background: var(--bg-soft);
+}
+
+.summary-grid ul {
+  margin: 0 0 0 18px;
+  color: var(--muted);
+}
+
+/* Right-side summary actions / next steps */
+.summary-next {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* =========================
+   Misc
+   ========================= */
+
+/* Shared inline code styling */
+code {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.85em;
+}
+
+/* Completion modal */
+.completion-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.3); /* soft dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999; /* above everything */
+}
+
+/* Main completion popup box */
+.completion-modal {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px 28px;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.25);
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Modal heading */
+.completion-modal h2 {
+  margin: 8px 0 4px;
+  font-size: 1.4rem;
+}
+
+.completion-modal p {
+  margin: 0 0 16px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* Trophy icon shown in completion modal */
+.completion-trophy {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+/* =========================
+   Responsive layout
+   ========================= */
+
+/* Tablet and medium screen layout changes */
+@media (max-width: 900px) {
+  .lesson-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  /* Stack major two-column layouts into one column */
+  .simulator-grid,
+  .complexity-grid,
+  .stability-grid,
+  .summary-grid,
+  .concept-builder {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lesson-header-main {
+    align-items: flex-start;
+  }
+}
+ @media (max-width: 640px) {
+  .bubble-lesson {
+    padding-inline: 12px;
+  }
+
+  .lesson-hero {
+    padding-inline: 14px;
+  }
+
+  .simulator-buttons {
+    flex-wrap: wrap;
+  }
+
+  .lesson-header-main h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* ===== CONTAINER / TEXT ===== */
+/* Container for card-based exercises */
+.card-exercise {
+  margin-top: 8px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  background: #f9fafb;
+  font-size: 0.9rem;
+}
+
+/* Row of playing cards/items used in card exercises */
+.card-row-playing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Footer row for card exercise buttons/info */
+.card-exercise-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.card-exercise-swaps {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.card-exercise-caption {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* ===== PLAYING CARD BASE ===== */
+/* Main visual style for each playing card */
+.playing-card {
+  position: relative;
+  width: 80px;
+  height: 120px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+  padding: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, border-color 0.15s ease;
+}
+
+/* Hover effect for playing cards */
+.playing-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(148, 163, 184, 0.6);
+}
+
+/* Selected card state */
+.playing-card-selected {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.45),
+    0 10px 24px rgba(37, 99, 235, 0.4);
+}
+
+/* subtle inner frame */
+.playing-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.35);
+  pointer-events: none;
+}
+
+/* ===== CORNER RANK + SUIT ===== */
+/* Shared style for top/bottom card corner info */
+.card-corner {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 0.85rem;
+  line-height: 1.1;
+  z-index: 2;
+}
+
+/* Top-left card corner */
+.card-corner-top {
+  top: 6px;
+  left: 6px;
+}
+
+/* Bottom-right card corner, rotated like a real playing card */
+.card-corner-bottom {
+  bottom: 6px;
+  right: 6px;
+  transform: rotate(180deg);
+}
+
+.card-rank-corner {
+  font-weight: 600;
+}
+
+.card-suit-corner {
+  font-size: 0.9rem;
+}
+
+/* ===== COLOURS ===== */
+/* Default black styling for black suits */
+.card-rank-corner,
+.card-suit-corner,
+.card-pip,
+.card-face-letter,
+.card-ace-suit {
+  color: #111827; /* black */
+}
+
+/* Red styling for hearts and diamonds */
+.playing-card-red .card-rank-corner,
+.playing-card-red .card-suit-corner,
+.playing-card-red .card-pip,
+.playing-card-red .card-face-letter,
+.playing-card-red .card-ace-suit {
+  color: #dc2626; /* red for hearts & diamonds */
+}
+
+/* ===== NUMERIC (2–10) PIPS ===== */
+/* Inner area where number-card suit symbols are positioned */
+.card-center-pips {
+  position: absolute;
+  inset: 20px 10px 20px 10px;
+}
+
+.card-pip {
+  position: absolute;
+  font-size: 1.35rem;
+  transform: translate(-50%, -50%);
+}
+
+/* ===== ACE ===== */
+/* Centre container for ace suit symbol */
+.card-center-ace {
+  position: absolute;
+  inset: 18px 10px 18px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-ace-suit {
+  font-size: 2.4rem;
+}
+
+/* ===== FACE CARDS (J / Q / K) ===== */
+.card-center-face {
+  position: absolute;
+  inset: 18px 10px 18px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-face-letter {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+/* =========================
+   T-shirt sorting activity
+   ========================= */
+
+/* Row layout for t-shirt cards */
+.tshirt-row {
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* Individual t-shirt item */
+.tshirt-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.6rem 0.9rem;
+}
+
+.tshirt-emoji {
+  font-size: 1.8rem;
+  margin-bottom: 0.25rem;
+}
+
+/* T-shirt label */
+.tshirt-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* T-shirt price text */
+.tshirt-price {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+/* INSERTION LESSON CUSTOMIZATIONS */
+.insertion-lesson .card-row-playing {
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Match the “real card” vibe */
+.insertion-lesson .playing-card {
+  width: 90px;
+  height: 130px;
+  border-radius: 14px;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.16);
+  padding: 10px;
+  background: #fff;
+}
+
+/* Make corners cleaner + a bit bolder like real cards */
+.insertion-lesson .card-corner {
+  font-size: 0.95rem;
+  line-height: 1.05;
+}
+
+.insertion-lesson .card-rank-corner {
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+
+.insertion-lesson .card-suit-corner {
+  font-size: 1rem;
+}
+
+/* Center pips: slightly tighter + a touch smaller */
+.insertion-lesson .card-center-pips {
+  inset: 22px 12px 22px 12px;
+}
+
+.insertion-lesson .card-pip {
+  font-size: 1.2rem;
+  opacity: 0.95;
+}
+
+/* Ace + face a little larger */
+.insertion-lesson .card-ace-suit {
+  font-size: 2.6rem;
+}
+
+.insertion-lesson .card-face-letter {
+  font-size: 2.4rem;
+  font-weight: 800;
+}
+
+/* Small pill used for exercise info or status */
+.exercise-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-softer);
+  color: var(--muted);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* ===== Quick Sort exercise polish ===== */
+
+/* pivot card extra hint */
+.quick-pivot {
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.35);
+}
+
+/* soft “drop-zone” vibe for left/right panels */
+.quick-zone-left {
+  background: rgba(21, 128, 61, 0.07) !important;
+  border-color: rgba(21, 128, 61, 0.25) !important;
+}
+
+/* Right partition zone styling */
+.quick-zone-right {
+  background: rgba(234, 88, 12, 0.07) !important;
+  border-color: rgba(234, 88, 12, 0.25) !important;
+}
+
+/* Slightly tighter badge card styling in quick lesson */
+.quick-lesson .badge-card {
+  min-height: 92px;
+  padding: 8px 10px;
+}
+
+/* Larger quick lesson badge icon */
+.quick-lesson .badge-icon {
+  font-size: 1.5rem;
+}
+
+/* Slightly smaller quick lesson badge label */
+.quick-lesson .badge-label {
+  font-size: 0.90rem;
+}
+
+.quick-lesson .badge-desc {
+  font-size: 0.74rem;
+}
+
+/* Feedback message styling */
+.quick-lesson .feedback-text {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-softer);
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+/* Success feedback state */
+.quick-lesson .feedback-success {
+  border-color: rgba(21, 128, 61, 0.35);
+  background: rgba(21, 128, 61, 0.08);
+}
+
+.quick-lesson .feedback-error {
+  border-color: rgba(185, 28, 28, 0.35);
+  background: rgba(185, 28, 28, 0.08);
+}
+
+/* Tip/information feedback state */
+.quick-lesson .feedback-tip {
+  border-color: rgba(37, 99, 235, 0.35);
+  background: rgba(37, 99, 235, 0.08);
+}
+
+/* Placed cards */
+.quick-lesson .number-card.placed {
+  opacity: 0.7;
+  cursor: default;
+}
+
+/* Card placed in left partition */
+.quick-lesson .number-card.placed-left {
+  background: rgba(21, 128, 61, 0.10) !important;
+  border-color: rgba(21, 128, 61, 0.45) !important;
+}
+
+/* Card placed in right partition */
+.quick-lesson .number-card.placed-right {
+  background: rgba(234, 88, 12, 0.10) !important;
+  border-color: rgba(234, 88, 12, 0.45) !important;
+}
+
+/* Pivot highlight stronger (quick sort only) */
+.quick-lesson .quick-pivot {
+  border-color: rgba(37, 99, 235, 0.75) !important;
+  background: rgba(37, 99, 235, 0.10) !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25),
+    0 10px 22px rgba(37, 99, 235, 0.12);
+}
+
+/* Pivot final layout */
+.quick-lesson .partition-layout {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+/* Generic partition block */
+.quick-lesson .partition-block {
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 10px;
+  background: var(--bg-soft);
+}
+
+.quick-lesson .partition-pivot {
+  border-style: solid;
+  border-color: rgba(37, 99, 235, 0.35);
+  background: rgba(37, 99, 235, 0.06);
+}
+
+/* Partition section label */
+.quick-lesson .partition-label {
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+/* EX2 split bars */
+.quick-lesson .split-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Single split bar row */
+.quick-lesson .split-bar {
+  display: grid;
+  grid-template-columns: 52px 1fr 34px;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Split bar track */
+.quick-lesson .split-track {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+/* Filled amount inside split track */
+.quick-lesson .split-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #22c55e);
+  border-radius: inherit;
+}
+
+/* EX3 shelf layout */
+.quick-lesson .shelf-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Generic shelf/drop container */
+.quick-lesson .shelf-box {
+  border-radius: 12px;
+  border: 2px dashed var(--border);
+  padding: 10px;
+  background: var(--bg-soft);
+}
+
+.quick-lesson .shelf-left {
+  border-color: rgba(21, 128, 61, 0.25);
+  background: rgba(21, 128, 61, 0.06);
+}
+
+.quick-lesson .shelf-right {
+  border-color: rgba(234, 88, 12, 0.25);
+  background: rgba(234, 88, 12, 0.06);
+}
+
+.quick-lesson .shelf-title {
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--muted);
+}
+
+/* EX4 warning pill */
+.quick-lesson .warning-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(185, 28, 28, 0.25);
+  background: rgba(185, 28, 28, 0.08);
+  color: #7f1d1d;
+  font-size: 0.85rem;
+}
+
+/* EX4 runs table */
+.quick-lesson .runs-table-wrap {
+  overflow-x: auto;
+}
+
+/* Runs comparison table */
+.quick-lesson .runs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+/* Runs table cells */
+.quick-lesson .runs-table th,
+.quick-lesson .runs-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  color: var(--muted);
+}
+
+/* Runs table heading cells */
+.quick-lesson .runs-table th {
+  background: var(--bg-softer);
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* Small help panel showing keyboard shortcuts */
+.shortcuts-panel {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #f4f6fb;
+  border: 1px solid #d6deff;
+  max-width: 320px;
+}
+
+/* Shortcuts panel heading */
+.shortcuts-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Shortcuts list container */
+.shortcuts-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+/* Individual shortcut item spacing */
+.shortcuts-list li {
+  margin-bottom: 4px;
+}
+
+/* Small note under the shortcuts list */
+.shortcuts-note {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-top: 6px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo {
+  width: 39px;
+  height: 39px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.brand-logo {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}

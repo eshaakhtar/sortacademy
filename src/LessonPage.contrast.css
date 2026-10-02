@@ -1,0 +1,172 @@
+/* =========================================================
+   Lesson Page – High Contrast Mode
+   Only applies when <body> has class="contrast"
+   ========================================================= */
+
+   body.contrast .bubble-lesson {
+ 
+    /* Override lesson-level variables */
+    --bg: #0b0f18;
+    --bg-soft: #0f1523;
+    --bg-softer: #141a27;
+    --text: #e6e8ee;
+    --muted: #cdd1da;
+    --border: #3c4a66;
+  
+    --accent: #3b82f6;
+    --accent-soft: rgba(59,130,246,0.18);
+    --accent-strong: #f97316;
+  
+    --success: #34d399;
+    --danger: #f87171;
+  
+    background: var(--bg);
+    color: var(--text);
+  }
+  
+  /* ---------------------------------------------------------
+     Core Panels / Sections
+  --------------------------------------------------------- */
+  
+  body.contrast .bubble-lesson .lesson-hero,
+  body.contrast .bubble-lesson .concept-builder,
+  body.contrast .bubble-lesson .simulator-input-panel,
+  body.contrast .bubble-lesson .simulator-controls,
+  body.contrast .bubble-lesson .simulator-visual,
+  body.contrast .bubble-lesson .simulator-right,
+  body.contrast .bubble-lesson .complexity-grid,
+  body.contrast .bubble-lesson .complexity-interactive,
+  body.contrast .bubble-lesson .case-presets,
+  body.contrast .bubble-lesson .stability-panel,
+  body.contrast .bubble-lesson .summary-grid,
+  body.contrast .bubble-lesson .exercise,
+  body.contrast .bubble-lesson .quiz {
+    background: var(--bg-soft);
+    border-color: var(--border);
+    color: var(--text);
+  }
+  
+  /* ---------------------------------------------------------
+     Small Cards / Chips / Buttons
+  --------------------------------------------------------- */
+  
+  body.contrast .bubble-lesson .badge-card,
+  body.contrast .bubble-lesson .number-card,
+  body.contrast .bubble-lesson .spot-bubble-snippet,
+  body.contrast .bubble-lesson .card-exercise,
+  body.contrast .bubble-lesson .shortcuts-panel,
+  body.contrast .bubble-lesson .exercise-tab,
+  body.contrast .bubble-lesson .lesson-subnav-btn,
+  body.contrast .bubble-lesson .btn-secondary,
+  body.contrast .bubble-lesson .btn-icon {
+    background: var(--bg-softer);
+    border-color: var(--border);
+    color: var(--text);
+  }
+  
+  /* Active Exercise Tab */
+  body.contrast .bubble-lesson .exercise-tab.active {
+    background: var(--bg-soft);
+    border-color: var(--accent);
+    color: var(--text);
+  }
+  
+  /* ---------------------------------------------------------
+     Muted Text
+  --------------------------------------------------------- */
+  
+  body.contrast .bubble-lesson .lesson-breadcrumbs,
+  body.contrast .bubble-lesson .lesson-header-main p,
+  body.contrast .bubble-lesson .gamification-intro,
+  body.contrast .bubble-lesson .badge-desc,
+  body.contrast .bubble-lesson .badge-status,
+  body.contrast .bubble-lesson .section-intro,
+  body.contrast .bubble-lesson .preview-caption,
+  body.contrast .bubble-lesson .array-item-value,
+  body.contrast .bubble-lesson .simulator-step-summary,
+  body.contrast .bubble-lesson .simulator-variables,
+  body.contrast .bubble-lesson .complexity-value,
+  body.contrast .bubble-lesson .complexity-caption,
+  body.contrast .bubble-lesson .adaptive-results,
+  body.contrast .bubble-lesson .quiz-option,
+  body.contrast .bubble-lesson .quiz-explanation-detail {
+    color: var(--muted);
+  }
+  
+  /* ---------------------------------------------------------
+     Progress Bar
+  --------------------------------------------------------- */
+  
+  body.contrast .bubble-lesson .lesson-progress-bar {
+    background: var(--bg-softer);
+  }
+  
+  body.contrast .bubble-lesson .lesson-progress-bar-fill {
+    background: var(--accent);
+  }
+  
+  /* ---------------------------------------------------------
+     Tables
+  --------------------------------------------------------- */
+  
+  body.contrast .bubble-lesson .case-presets-table th {
+    background: var(--bg-softer);
+    color: var(--text);
+  }
+  
+  body.contrast .bubble-lesson .case-presets-table td,
+  body.contrast .bubble-lesson .case-presets-table th {
+    border-bottom-color: var(--border);
+  }
+  
+  /* ---------------------------------------------------------
+     Completion Modal
+  --------------------------------------------------------- */
+  
+  body.contrast .completion-modal {
+    background: var(--bg-soft);
+    border-color: var(--border);
+    color: var(--text);
+  }
+  
+  body.contrast .completion-modal p {
+    color: var(--muted);
+  }
+  
+  /* ---------------------------------------------------------
+     Playing Cards (Stay Light For Readability)
+  --------------------------------------------------------- */
+  
+  body.contrast .playing-card {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #111827;
+    box-shadow: 0 10px 24px rgba(0,0,0,.45);
+  }
+  
+  body.contrast .playing-card::before {
+    box-shadow: none;
+  }
+  
+  body.contrast .card-rank-corner,
+  body.contrast .card-suit-corner,
+  body.contrast .card-pip,
+  body.contrast .card-face-letter,
+  body.contrast .card-ace-suit {
+    color: #111827;
+  }
+  
+  body.contrast .playing-card-red .card-rank-corner,
+  body.contrast .playing-card-red .card-suit-corner,
+  body.contrast .playing-card-red .card-pip,
+  body.contrast .playing-card-red .card-face-letter,
+  body.contrast .playing-card-red .card-ace-suit {
+    color: #dc2626;
+  }
+  
+  /* Selected card highlight */
+  body.contrast .playing-card-selected {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(59,130,246,.55),
+                0 10px 24px rgba(0,0,0,.45);
+  }

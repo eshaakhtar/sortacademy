@@ -1,0 +1,573 @@
+/* Root layout for the "What is sorting?" page */
+.wis-shell {
+  min-height: 100vh;
+  padding: 32px 24px 40px;
+  background: #f5f7ff;
+  color: #111827;
+}
+  
+  /* Header reuses home-style branding */
+  .wis-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  
+  /* Reuse home-style logo and nav styles for consistency */
+  .home-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .home-logo-badge {
+    width: 52px;
+    height: 52px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+  }
+  
+  .home-logo-text-main {
+    font-weight: 800;
+    font-size: 22px;
+  }
+  
+  .home-logo-text-sub {
+    font-size: 13px;
+    color: #6b7280;
+  }
+  
+  .home-nav {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .home-nav a {
+    padding: 8px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #4b5563;
+  }
+  
+  .home-nav a.active {
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+    color: #2563eb;
+  }
+  
+  /* Main content */
+  .wis-main {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  /* Hero section */
+  .wis-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  /* Reuse home-style hero image styles for consistency */
+  .wis-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 11px;
+    color: #6b7280;
+    margin: 0 0 6px;
+  }
+  
+  .wis-title {
+    font-size: clamp(28px, 3vw, 36px);
+    margin: 0 0 10px;
+  }
+  
+  .wis-body {
+    color: #4b5563;
+    margin: 0 0 10px;
+  }
+  
+  /* Generic sections */
+  .wis-section {
+    margin: 32px 0 24px;
+  }
+  
+  .wis-section h2 {
+    margin: 0 0 10px;
+  }
+  
+  .wis-section-intro {
+    max-width: 720px;
+    color: #4b5563;
+    margin: 0 0 16px;
+  }
+  
+  /* Cards and grids */
+  .wis-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 16px 16px 18px;
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
+    border: 1px solid rgba(148, 163, 184, 0.4);
+  }
+  
+  .wis-caption {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 8px;
+  }
+  
+  .wis-card-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+  
+  .wis-info-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 14px 12px 14px;
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e5e7eb;
+  }
+  
+  .wis-info-card h3 {
+    margin: 0 0 6px;
+    font-size: 15px;
+  }
+  
+  /* Compare card */
+  .wis-compare-card h2 {
+    margin-top: 0;
+    font-size: 18px;
+  }
+  
+  .wis-compare-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+  }
+  
+  .wis-compare-card h3 {
+    margin: 0 0 4px;
+    font-size: 14px;
+  }
+  
+  .wis-compare-card ul {
+    list-style: none;
+    padding: 8px 10px;
+    margin: 0;
+    border-radius: 12px;
+    background: #f9fafb;
+    display: flex;
+    gap: 8px;
+  }
+  
+  .wis-compare-card li {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #a855f7, #2563eb);
+    color: #fff;
+    font-size: 13px;
+  }
+  
+  /* Real-life grid */
+  .wis-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+  
+  .wis-example-card,
+  .wis-algo-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 14px 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  }
+  
+  .wis-example-card h3,
+  .wis-algo-card h3 {
+    margin: 0 0 6px;
+    font-size: 15px;
+  }
+  
+  /* Asc / desc order */
+  .wis-order-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  
+  .wis-order-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 14px 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+  }
+  
+  .wis-order-example {
+    margin: 4px 0;
+    font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular,
+      Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 13px;
+  }
+  
+  /* Demo card */
+  .wis-demo-card {
+    margin-top: 6px;
+  }
+  
+  .wis-number-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  
+  .wis-number-pill {
+    min-width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    font-size: 14px;
+  }
+  
+  .wis-demo-btn {
+    border-radius: 999px;
+    border: none;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    background: #2563eb;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+  }
+  
+  /* CTA */
+  .wis-cta-row {
+    margin-top: 18px;
+  }
+  
+  /* Reuse demo button style for the primary CTA */
+  .wis-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    border-radius: 999px;
+    text-decoration: none;
+    border: none;
+    font-size: 14px;
+    background: #2563eb;
+    color: #fff;
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.32);
+  }
+  
+  /* Footer */
+  .wis-footer {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 13px;
+    color: #9ca3af;
+  }
+  
+  /* Responsive */
+  @media (max-width: 960px) {
+    .wis-shell {
+      padding: 22px 16px 28px;
+    }
+  
+    .wis-hero {
+      grid-template-columns: 1fr;
+    }
+  
+    .wis-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  
+    .wis-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .wis-order-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .wis-card-row {
+      grid-template-columns: 1fr;
+    }
+  
+    .wis-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .brand-logo {
+    width: 49px;
+    height: 49px;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+
+  .wis-header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+  }
+  
+  .wis-access-wrap {
+    position: relative;
+  }
+  
+  .wis-access-btn {
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    color: #374151;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  }
+  
+  .wis-access-btn:hover {
+    border-color: #2563eb;
+  }
+  
+  .wis-access-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 260px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+    padding: 14px;
+    z-index: 1000;
+  }
+  
+  .wis-access-menu h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+  }
+  
+  .wis-access-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #374151;
+  }
+  
+  .wis-access-sep {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 10px 0;
+  }
+  
+  .wis-access-reset {
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+    color: #374151;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .wis-access-reset:hover {
+    border-color: #2563eb;
+    background: #eff6ff;
+  }
+
+  .wis-header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+
+.wis-access-wrap {
+  position: relative;
+}
+
+.wis-access-btn {
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #374151;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.wis-access-btn:hover {
+  border-color: #2563eb;
+}
+
+.wis-access-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 260px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+  padding: 14px;
+  z-index: 1000;
+}
+
+.wis-access-menu h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.wis-access-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.wis-access-sep {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 10px 0;
+}
+
+.wis-access-reset {
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: #374151;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.wis-access-reset:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+/* Accessibility global toggles */
+
+body.large-text {
+  font-size: 18px;
+}
+
+body.dyslexia {
+  font-family: "Atkinson Hyperlegible", "OpenDyslexic", system-ui,
+    -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body.contrast {
+  background: #0b0f18;
+  color: #e6e8ee;
+}
+
+/* ---------- WhatIsSorting accessibility ---------- */
+body.dyslexia .wis-shell,
+body.dyslexia .wis-shell * {
+  font-family: "Atkinson Hyperlegible", "OpenDyslexic", system-ui,
+    -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body.large-text .wis-shell {
+  font-size: 1.125rem;
+}
+
+body.contrast .wis-shell {
+  background: #0b0f18;
+  color: #e6e8ee;
+}
+
+body.contrast .wis-body,
+body.contrast .wis-section-intro,
+body.contrast .wis-caption,
+body.contrast .home-logo-text-sub,
+body.contrast .home-nav a,
+body.contrast .wis-access-option,
+body.contrast .wis-footer {
+  color: #cdd1da;
+}
+
+body.contrast .wis-card,
+body.contrast .wis-info-card,
+body.contrast .wis-example-card,
+body.contrast .wis-algo-card,
+body.contrast .wis-order-card,
+body.contrast .wis-compare-card,
+body.contrast .wis-access-menu {
+  background: #141a27;
+  color: #e6e8ee;
+  border-color: #3c4a66;
+  box-shadow: none;
+}
+
+body.contrast .wis-compare-card ul {
+  background: #0f1523;
+}
+
+body.contrast .wis-demo-btn,
+body.contrast .wis-btn-primary {
+  background: #3b82f6;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+body.contrast .wis-access-btn,
+body.contrast .wis-access-reset {
+  background: #0f1523;
+  color: #e6e8ee;
+  border-color: #3c4a66;
+  box-shadow: none;
+}
+
+body.contrast .wis-access-sep {
+  border-top-color: #3c4a66;
+}
+
+body.contrast .home-nav a.active {
+  background: #141a27;
+  color: #60a5fa;
+  box-shadow: none;
+}
+
+body.contrast .wis-number-pill,
+body.contrast .wis-compare-card li {
+  background: #3b82f6;
+  color: #ffffff;
+}
